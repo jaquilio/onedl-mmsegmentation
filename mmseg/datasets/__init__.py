@@ -41,6 +41,16 @@ from .transforms import (CLAHE, AdjustGamma, Albu, BioMedical3DPad,
                          SegRescale)
 from .voc import PascalVOCDataset
 
+try:
+    from .onedl import OneDLDataset, OneDLLineInstancesDatasetAdapter
+    onedl_dataset_types = ['OneDLDataset']
+except ImportError:
+    import logging
+
+    from mmengine.logging import print_log
+    print_log('Could not import OneDL', level=logging.DEBUG)
+    onedl_dataset_types = []
+
 # yapf: enable
 __all__ = [
     'BaseSegDataset', 'BioMedical3DRandomCrop', 'BioMedical3DRandomFlip',
@@ -62,4 +72,4 @@ __all__ = [
     'LoadMultipleRSImageFromFile', 'LoadSingleRSImageFromFile',
     'ConcatCDInput', 'BaseCDDataset', 'DSDLSegDataset', 'BDD100KDataset',
     'NYUDataset', 'HSIDrive20Dataset'
-]
+] + onedl_dataset_types
