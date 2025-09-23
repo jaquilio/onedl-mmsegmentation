@@ -1,9 +1,9 @@
 <div align="center">
   <picture>
     <!-- User prefers dark mode: -->
-  <source srcset="https://raw.githubusercontent.com/vbti-development/onedl-mmsegmentation/main/docs/en/_static/image/onedl-mmsegmentation-banner-dark.png"  media="(prefers-color-scheme: dark)"/>
+  <source srcset="https://raw.githubusercontent.com/vbti-development/onedl-mmsegmentation/main/docs/en/_static/images/onedl-mmsegmentation-banner-dark.png"  media="(prefers-color-scheme: dark)"/>
 
-<img src="https://raw.githubusercontent.com/vbti-development/onedl-mmsegmentation/main/docs/en/_static/image/onedl-mmsegmentation-banner.png" alt="OneDL-Segmentation logo" height="200"/>
+<img src="https://raw.githubusercontent.com/vbti-development/onedl-mmsegmentation/main/docs/en/_static/images/onedl-mmsegmentation-banner.png" alt="OneDL-Segmentation logo" height="200"/>
   </picture>
   <div>&nbsp;</div>
   <div align="center">
