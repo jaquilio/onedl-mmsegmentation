@@ -97,6 +97,16 @@ class PackSegInputs(BaseTransform):
                 data=to_tensor(results['gt_depth_map'][None, ...]))
             data_sample.set_data(dict(gt_depth_map=PixelData(**gt_depth_data)))
 
+        if 'gt_rgb_map' in results:
+            gt_rgb_map = results['gt_rgb_map']
+            if not gt_rgb_map.flags.c_contiguous:
+                gt_rgb_map = to_tensor(np.ascontiguousarray(gt_rgb_map.transpose(2, 0, 1)))
+            else:
+                gt_rgb_map = gt_rgb_map.transpose(2, 0, 1)
+                gt_rgb_map = to_tensor(gt_rgb_map).contiguous()            
+            gt_rgb_map_data = dict(data=gt_rgb_map)
+            data_sample.set_data(dict(gt_rgb_map=PixelData(**gt_rgb_map_data)))
+
         img_meta = {}
         for key in self.meta_keys:
             if key in results:
